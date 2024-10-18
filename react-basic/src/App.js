@@ -1,6 +1,7 @@
 import {useState, useRef} from "react";
 import {StatePropagation} from "./StatePropagation";
 import {SideEffect} from "./SideEffect";
+import {CustomizedHook} from "./CustomizedHook";
 
 const count = 100;
 
@@ -121,6 +122,7 @@ function App() {
           <StatePropagation></StatePropagation>
           {isShow && < SideEffect/>}
           <button onClick={() => setIsShow(!isShow)}>Toggle Side Effect</button>
+          <CustomizedHook></CustomizedHook>
       </div>
 
   )
