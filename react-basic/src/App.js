@@ -46,8 +46,8 @@ function App() {
       console.log('button clicked', e)
   }
 
-    const [counter, setCounter] = useState(0)
-
+  const [counter, setCounter] = useState(0)
+  const [value, setValue] = useState('')
 
   return (
       <div className="App">
@@ -76,7 +76,9 @@ function App() {
           <h1>  {'Counter = ' + counter}</h1>
           <button onClick={() => setCounter(counter + 1)}> Increment</button>
           <button onClick={() => setCounter(counter - 1)}> Decrement </button>
-
+          <hr/>
+          <h1>{'Form value: ' + value}</h1>
+          <input type="text" onChange={(e)=>setValue(e.target.value)}/>
       </div>
 
   )
