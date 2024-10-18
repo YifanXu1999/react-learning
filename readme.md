@@ -118,5 +118,61 @@ const inputRef = useRef(null)
 <input type="text" ref={inputRef}/>
 ```
 
-# Value Propagation
+# Props Propagation (Parent to Child)
+
+Child Component
+
+```react
+function Son (props) {
+    console.log(props)
+    return (
+        <div>
+            <h1>{'son name is :' + props.name}</h1>
+        </div>
+    )
+}
+```
+
+Parent to use Child Component
+
+```react
+<Son
+    name='yifan'
+    age={18}
+    isTrue={true}
+    list={[1,2,3]}
+    obj={{name: 'jack', age: 18}}
+    cb={() => console.log('123')}
+    child={<span>This is child span</span>}
+/>
+```
+
+
+
+# Props Propagation (Child to Parent)
+
+Parent Component 
+
+```react
+<Son2
+  onSendMessage={(message) => console.log(message)}
+/>
+```
+
+
+
+Child Component
+
+```react
+function Son2 (props) {
+    const onSendMessage = props.onSendMessage;
+    return (
+        <div>
+            <button onClick={() => onSendMessage('Hello from son2')}>Send Message</button>
+        </div>
+    )
+}
+```
+
+
 

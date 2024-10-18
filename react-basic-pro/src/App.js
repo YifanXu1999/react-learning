@@ -81,6 +81,7 @@ const tabs = [
 ]
 
 
+
 const App = () => {
   const [commentList, setCommentList] = useState(defaultList)
   const [currentTab, setCurrentTab] = useState('hot')
@@ -210,6 +211,7 @@ const App = () => {
 
         </div>
       </div>
+
     </div>
   )
 }

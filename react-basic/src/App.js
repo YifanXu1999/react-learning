@@ -35,8 +35,23 @@ const getArticle = () => {
 }
 
 
+function Son (props) {
+    console.log(props)
+    return (
+        <div>
+            <h1>{'son name is :' + props.name}</h1>
+        </div>
+    )
+}
 
-
+function Son2 (props) {
+    const onSendMessage = props.onSendMessage;
+    return (
+        <div>
+            <button onClick={() => onSendMessage('Hello from son2')}>Send Message</button>
+        </div>
+    )
+}
 function App() {
   const handleClick = () => {
         console.log('button clicked')
@@ -86,6 +101,18 @@ function App() {
           <hr/>
           <input type="text" ref={inputRef}/>
           <button onClick={showDom}>Show Dom</button>
+          <Son
+              name='yifan'
+              age={18}
+              isTrue={true}
+              list={[1,2,3]}
+              obj={{name: 'jack', age: 18}}
+              cb={() => console.log('123')}
+              child={<span>This is child span</span>}
+          />
+          <Son2
+            onSendMessage={(message) => console.log(message)}
+          />
       </div>
 
   )
