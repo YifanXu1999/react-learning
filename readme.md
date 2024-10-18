@@ -216,5 +216,16 @@ Parameter 2 (optional) is dependency to trigger side effect function
 | Empty Arrary dependency | First time render                               |
 | Specific dependency     | first time render + specified item state update |
 
+**Clear Side Effect**
 
-
+```react
+const clearSideEffect = useEffect(() => {
+    const timer = setInterval(()=> {
+        console.log('not clear side effect')
+    }, 1000)
+    return () => {
+        console.log('clear side effect')
+        clearInterval(timer)
+    }
+}, []);
+```

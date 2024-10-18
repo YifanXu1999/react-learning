@@ -70,6 +70,7 @@ function App() {
   const [value, setValue] = useState('')
   const inputRef = useRef(null)
   const [message, setMessage] = useState('')
+  const [isShow, setIsShow] = useState(true)
   return (
       <div className="App">
           {/* 1. string */}
@@ -118,7 +119,8 @@ function App() {
           />
           <h1>{'Message from son2: ' + message}</h1>
           <StatePropagation></StatePropagation>
-          <SideEffect></SideEffect>
+          {isShow && < SideEffect/>}
+          <button onClick={() => setIsShow(!isShow)}>Toggle Side Effect</button>
       </div>
 
   )

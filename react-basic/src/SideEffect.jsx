@@ -4,7 +4,7 @@ const URL = 'https://geek.itheima.net/v1_0/channels'
 export const SideEffect = () => {
 
     const [list, setList] = useState([])
-    useEffect(() => {
+    const getList = useEffect(() => {
          const getList = async () => {
              const res = await fetch(URL)
              const jsonRes = await res.json()
@@ -13,6 +13,16 @@ export const SideEffect = () => {
          getList()
         }
     )
+
+    const clearSideEffect = useEffect(() => {
+        const timer = setInterval(()=> {
+            console.log('not clear side effect')
+        }, 1000)
+        return () => {
+            console.log('clear side effect')
+            clearInterval(timer)
+        }
+    }, []);
 
     return (
         <div>
