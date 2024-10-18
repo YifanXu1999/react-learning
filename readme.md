@@ -118,3 +118,5 @@ const inputRef = useRef(null)
 <input type="text" ref={inputRef}/>
 ```
 
+# Value Propagation
+

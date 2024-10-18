@@ -1,9 +1,13 @@
 import './App.scss'
 import avatar from './images/bozai.png'
 
-import {useState} from "react";
+import {useState, useRef} from "react";
 import _ from "lodash";
 import classNames from "classnames";
+
+import {v4} from 'uuid';
+
+import dayjs   from "dayjs";
 /**
  * 评论列表的渲染和操作
  *
@@ -25,7 +29,7 @@ const defaultList = [
     // 评论内容
     content: '哎哟，不错哦',
     // 评论时间
-    ctime: '10-18 08:15',
+    ctime: '05-18 08:15',
     like: 88,
   },
   {
@@ -36,7 +40,7 @@ const defaultList = [
       uname: '许嵩',
     },
     content: '我寻你千百度 日出到迟暮',
-    ctime: '11-13 11:29',
+    ctime: '02-13 11:29',
     like: 88,
   },
   {
@@ -47,7 +51,7 @@ const defaultList = [
       uname: '黑马前端',
     },
     content: '学前端就来黑马',
-    ctime: '10-19 09:00',
+    ctime: '02-19 09:00',
     like: 66,
   },
 ]
@@ -80,6 +84,8 @@ const tabs = [
 const App = () => {
   const [commentList, setCommentList] = useState(defaultList)
   const [currentTab, setCurrentTab] = useState('hot')
+  const [content, setContent] = useState('')
+  const inputRef = useRef(null)
   const deleteComment = (comment) => {
     let newCommentList = commentList.filter((item) => item.rpid !== comment.rpid)
     setCommentList(newCommentList)
@@ -92,6 +98,26 @@ const App = () => {
     } else {
       setCommentList(_.orderBy(commentList, 'ctime', 'desc'))
     }
+
+  }
+
+  const publishComment = () => {
+    if (!content) {
+      return
+    }
+
+
+
+    const newComment = {
+      rpId: v4(),
+      user: user,
+      content: content,
+      ctime: dayjs(new Date()).format('MM-DD HH:mm'),
+      like: 0,
+    }
+    setCommentList([...commentList, newComment])
+    setContent('')
+    inputRef.current.focus()
 
   }
 
@@ -129,10 +155,13 @@ const App = () => {
             <textarea
               className="reply-box-textarea"
               placeholder="发一条友善的评论"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              ref={inputRef}
             />
             {/* 发布按钮 */}
-            <div className="reply-box-send">
-              <div className="send-text">发布</div>
+            <div className="reply-box-send" onClick={()=>publishComment()} >
+              <div className="send-text" >发布</div>
             </div>
           </div>
         </div>
