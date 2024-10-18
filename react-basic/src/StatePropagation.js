@@ -1,4 +1,7 @@
-import {useState} from "react";
+import {useState, createContext, useContext} from "react";
+
+const MsgContext = createContext();
+
 
 function A(props) {
     return(
@@ -10,10 +13,11 @@ function A(props) {
 }
 
 function B(props) {
+    const  msg = useContext(MsgContext)
     return(
         <div>
            This is B Component
-            <h1>{props.name}</h1>
+            <h1>{props.name} + ' ' + {msg} </h1>
         </div>
     )
 }
@@ -23,9 +27,11 @@ export const StatePropagation = () => {
     const [name, setName] = useState('')
     return(
         <div>
-            This is App
-            <A updateName={setName}/>
-            <B name={name}/>
+            <MsgContext.Provider value={" this is context message"}>
+                This is App
+                <A updateName={setName}/>
+                <B name={name}/>
+            </MsgContext.Provider>
         </div>
     )
 }

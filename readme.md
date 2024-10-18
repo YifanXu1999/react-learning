@@ -175,5 +175,24 @@ function Son2 (props) {
 }
 ```
 
+# Context
+
+
+
+```react
+const MsgContext = createContext();
+
+
+  <MsgContext.Provider value={" this is context message"}>
+      This is App
+      <A updateName={setName}/>
+      <B name={name}/>
+  </MsgContext.Provider>
+
+function B(props) {
+    const  msg = useContext(MsgContext)
+}
+```
+
 
 
