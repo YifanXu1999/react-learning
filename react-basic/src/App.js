@@ -1,4 +1,5 @@
 import {useState, useRef} from "react";
+import {StatePropagation} from "./StatePropagation";
 
 const count = 100;
 
@@ -115,7 +116,7 @@ function App() {
             onSendMessage={(message) => setMessage(message)}
           />
           <h1>{'Message from son2: ' + message}</h1>
-
+          <StatePropagation></StatePropagation>
       </div>
 
   )
