@@ -34,9 +34,21 @@ npx create-react-app
 # List
 
 ```react
-          <ul>
-            <li key={item.id}>{'name: ' + item.name}</li>
-          </ul>
+const list = [
+    {id: 1, name: 'jack'},
+    {id: 2, name: 'jill'},
+    {id: 3, name: 'john'},
+    {id: 4, name: 'jane'},
+]    
+
+<ul>
+    {
+        list.map((item) => {
+            return <li key={item.id}>{item.name}</li>
+          }
+        )
+    }
+</ul>
 ```
 
 Note: use key={item.id} for list element key-binding, thus improve performance
@@ -47,6 +59,14 @@ Note: use key={item.id} for list element key-binding, thus improve performance
 
 logical boolean &&
 
+```react
+{isLogin && <span>Show is Login</span>}
+```
+
 
 
 Ternary Expression
+```react
+{isLogin ? <span> Log in true</span> : <span> Login false</span>}
+```
+

@@ -13,6 +13,13 @@ const list = [
     {id: 4, name: 'jane'},
 ]
 
+function getList() {
+    return list.map((item) => {
+        return <li key={item.id}>{'name: ' + item.name}</li>
+    })
+}
+
+const isLogin = true;
 
 function App() {
   return (
@@ -24,8 +31,16 @@ function App() {
           {/*3. function call*/}
           {getName()}
           <ul>
-            <li key={item.id}>{'name: ' + item.name}</li>
+              {
+                  list.map((item) => {
+                      return <li key={item.id}>{item.name}</li>
+                    }
+                  )
+              }
           </ul>
+
+          {isLogin && <span>Show is Login</span>}
+          {isLogin ? <span> Log in true</span> : <span> Login false</span>}
       </div>
 
   )
