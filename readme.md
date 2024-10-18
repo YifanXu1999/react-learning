@@ -33,3 +33,20 @@ npx create-react-app
 
 # List
 
+```react
+          <ul>
+            <li key={item.id}>{'name: ' + item.name}</li>
+          </ul>
+```
+
+Note: use key={item.id} for list element key-binding, thus improve performance
+
+
+
+# Conditional Rendering
+
+logical boolean &&
+
+
+
+Ternary Expression
