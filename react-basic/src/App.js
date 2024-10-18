@@ -21,7 +21,30 @@ function getList() {
 
 const isLogin = true;
 
+
+const articleType = 1
+
+const getArticle = () => {
+    if(articleType === 1){
+        return <h1>Article 1</h1>
+    } else if (articleType === 2) {
+        return <h1>Article 2</h1>
+    } else {
+        return <h1>Article else</h1>
+    }
+}
+
+
+
+
 function App() {
+  const handleClick = () => {
+        console.log('button clicked')
+  }
+
+  const handleClickEvent = (e) => {
+      console.log('button clicked', e)
+  }
   return (
       <div className="App">
           {/* 1. string */}
@@ -33,14 +56,18 @@ function App() {
           <ul>
               {
                   list.map((item) => {
-                      return <li key={item.id}>{item.name}</li>
-                    }
+                          return <li key={item.id}>{item.name}</li>
+                      }
                   )
               }
           </ul>
 
           {isLogin && <span>Show is Login</span>}
           {isLogin ? <span> Log in true</span> : <span> Login false</span>}
+          {getArticle()}
+
+          <button onClick={handleClick}> Click Me</button>
+          <button onClick={(e) => handleClickEvent(e)}> Click Me</button>
       </div>
 
   )

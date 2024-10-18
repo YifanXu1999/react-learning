@@ -70,3 +70,32 @@ Ternary Expression
 {isLogin ? <span> Log in true</span> : <span> Login false</span>}
 ```
 
+If Condition
+
+```react
+const getArticle = () => {
+    if(articleType === 1){
+        return <h1>Article 1</h1>
+    } else if (articleType === 2) {
+        return <h1>Article 2</h1>
+    } else {
+        return <h1>Article else</h1>
+    }
+}
+```
+
+
+
+# Event Binding
+
+Syntax with no function parameter is **onEventName]*="**functionName**"
+
+```react
+<button onClick={handleClick}> Click Me </button>
+```
+
+Syntax with function parameter is **onEventName**="(e)=>**functionName(x)**"
+
+```react
+<button onClick={(e) => handleClickEvent(e)}> Click Me</button>
+```
