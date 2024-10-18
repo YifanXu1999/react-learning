@@ -104,3 +104,10 @@ Syntax with function parameter is **onEventName**="(e)=>**functionName(x)**"
 
 # UseState Basic
 
+```react
+import {useState} from "react";
+const [counter, setCounter] = useState(0)
+<button onClick={() => setCounter(counter + 1)}> Increment</button>
+<button onClick={() => setCounter(counter - 1)}> Decrement </button>
+```
+
