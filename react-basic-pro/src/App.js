@@ -78,6 +78,7 @@ const tabs = [
 
 const App = () => {
   const [commentList, setCommentList] = useState(defaultList)
+  const [currentTab, setCurrentTab] = useState('hot')
   const deleteComment = (comment) => {
     let newCommentList = commentList.filter((item) => item.rpid !== comment.rpid)
     setCommentList(newCommentList)
@@ -94,8 +95,10 @@ const App = () => {
           </li>
           <li className="nav-sort">
             {/* 高亮类名： active */}
-            <span className='nav-item'>最新</span>
-            <span className='nav-item'>最热</span>
+            {tabs.map((tab) => (
+                <span key={tab.type} onClick={() => setCurrentTab(tab.type)}
+                    className={`nav-item ${currentTab === tab.type && 'active'}`}>{tab.text}</span>
+            ))}
           </li>
         </ul>
       </div>
