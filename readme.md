@@ -151,11 +151,12 @@ Parent to use Child Component
 
 # Props Propagation (Child to Parent)
 
-Parent Component 
+Parent Component  Use State
 
 ```react
+const [message, setMessage] = useState('')
 <Son2
-  onSendMessage={(message) => console.log(message)}
+  onSendMessage={(message) => setMessage(message)}
 />
 ```
 

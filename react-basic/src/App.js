@@ -67,7 +67,7 @@ function App() {
   const [counter, setCounter] = useState(0)
   const [value, setValue] = useState('')
   const inputRef = useRef(null)
-
+  const [message, setMessage] = useState('')
   return (
       <div className="App">
           {/* 1. string */}
@@ -110,9 +110,12 @@ function App() {
               cb={() => console.log('123')}
               child={<span>This is child span</span>}
           />
+          <hr/>
           <Son2
-            onSendMessage={(message) => console.log(message)}
+            onSendMessage={(message) => setMessage(message)}
           />
+          <h1>{'Message from son2: ' + message}</h1>
+
       </div>
 
   )
