@@ -75,8 +75,13 @@ const tabs = [
   { type: 'time', text: '最新' },
 ]
 
+
 const App = () => {
-  const [commentList, setUserList] = useState(defaultList)
+  const [commentList, setCommentList] = useState(defaultList)
+  const deleteComment = (comment) => {
+    let newCommentList = commentList.filter((item) => item.rpid !== comment.rpid)
+    setCommentList(newCommentList)
+  }
   return (
     <div className="app">
       {/* 导航 Tab */}
@@ -146,9 +151,10 @@ const App = () => {
                       <span className="reply-time">{comment.ctime}</span>
                       {/* 评论数量 */}
                       <span className="reply-time">点赞数:{comment.like}</span>
-                      <span className="delete-btn">
-                    删除
-                  </span>
+                      {
+                          comment.user.uid == user.uid
+                          && <span className="delete-btn" onClick={()=>deleteComment(comment)}>删除</span>
+                      }
 
                     </div>
                   </div>
