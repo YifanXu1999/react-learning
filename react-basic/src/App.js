@@ -1,4 +1,4 @@
-
+import {useState} from "react";
 
 const count = 100;
 
@@ -45,6 +45,10 @@ function App() {
   const handleClickEvent = (e) => {
       console.log('button clicked', e)
   }
+
+    const [counter, setCounter] = useState(0)
+
+
   return (
       <div className="App">
           {/* 1. string */}
@@ -68,6 +72,11 @@ function App() {
 
           <button onClick={handleClick}> Click Me</button>
           <button onClick={(e) => handleClickEvent(e)}> Click Me</button>
+          <hr/>
+          <h1>  {'Counter = ' + counter}</h1>
+          <button onClick={() => setCounter(counter + 1)}> Increment</button>
+          <button onClick={() => setCounter(counter - 1)}> Decrement </button>
+
       </div>
 
   )
