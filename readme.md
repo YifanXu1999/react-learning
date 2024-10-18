@@ -198,7 +198,7 @@ function B(props) {
 
 # UseEffect Basics
 
-Syntax
+**Syntax**
 
 ```react
 useEffect(()=> {}, [])
@@ -206,7 +206,15 @@ useEffect(()=> {}, [])
 
 Parameter 1 is called side effect function, 
 
-Parameter 2 is dependency to trigger side effect function
+Parameter 2 (optional) is dependency to trigger side effect function
+
+**Dependencies**
+
+| Dependency              | When to call side effect                        |
+| ----------------------- | ----------------------------------------------- |
+| No dependency           | First time render + component state update      |
+| Empty Arrary dependency | First time render                               |
+| Specific dependency     | first time render + specified item state update |
 
 
 
