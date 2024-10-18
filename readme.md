@@ -111,3 +111,10 @@ const [counter, setCounter] = useState(0)
 <button onClick={() => setCounter(counter - 1)}> Decrement </button>
 ```
 
+# UseRef Basic
+
+```react
+const inputRef = useRef(null)
+<input type="text" ref={inputRef}/>
+```
+

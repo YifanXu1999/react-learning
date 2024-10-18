@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 
 const count = 100;
 
@@ -46,8 +46,12 @@ function App() {
       console.log('button clicked', e)
   }
 
+  const showDom = () => {
+        console.log(inputRef.current)
+    }
   const [counter, setCounter] = useState(0)
   const [value, setValue] = useState('')
+  const inputRef = useRef(null)
 
   return (
       <div className="App">
@@ -79,6 +83,9 @@ function App() {
           <hr/>
           <h1>{'Form value: ' + value}</h1>
           <input type="text" onChange={(e)=>setValue(e.target.value)}/>
+          <hr/>
+          <input type="text" ref={inputRef}/>
+          <button onClick={showDom}>Show Dom</button>
       </div>
 
   )
