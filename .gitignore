@@ -68,3 +68,6 @@ Icon
 
 # Nuxt.js build output
 .nuxt
+
+*rar*
+*DS_Store*
