@@ -2,7 +2,8 @@ import './App.scss'
 import avatar from './images/bozai.png'
 
 import {useState} from "react";
-
+import _ from "lodash";
+import classNames from "classnames";
 /**
  * 评论列表的渲染和操作
  *
@@ -83,6 +84,17 @@ const App = () => {
     let newCommentList = commentList.filter((item) => item.rpid !== comment.rpid)
     setCommentList(newCommentList)
   }
+  const handleTabSwitch = (type) => {
+    setCurrentTab(type)
+
+    if (type === 'hot') {
+       setCommentList(_.orderBy(commentList, 'like', 'desc'))
+    } else {
+      setCommentList(_.orderBy(commentList, 'ctime', 'desc'))
+    }
+
+  }
+
   return (
     <div className="app">
       {/* 导航 Tab */}
@@ -96,8 +108,8 @@ const App = () => {
           <li className="nav-sort">
             {/* 高亮类名： active */}
             {tabs.map((tab) => (
-                <span key={tab.type} onClick={() => setCurrentTab(tab.type)}
-                    className={`nav-item ${currentTab === tab.type && 'active'}`}>{tab.text}</span>
+                <span key={tab.type} onClick={() => handleTabSwitch(tab.type)}
+                    className={classNames('nav-item', {active: currentTab===tab.type})}>{tab.text}</span>
             ))}
           </li>
         </ul>
@@ -155,7 +167,7 @@ const App = () => {
                       {/* 评论数量 */}
                       <span className="reply-time">点赞数:{comment.like}</span>
                       {
-                          comment.user.uid == user.uid
+                          comment.user.uid === user.uid
                           && <span className="delete-btn" onClick={()=>deleteComment(comment)}>删除</span>
                       }
 
