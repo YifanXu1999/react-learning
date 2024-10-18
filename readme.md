@@ -196,3 +196,17 @@ function B(props) {
 
 
 
+# UseEffect Basics
+
+Syntax
+
+```react
+useEffect(()=> {}, [])
+```
+
+Parameter 1 is called side effect function, 
+
+Parameter 2 is dependency to trigger side effect function
+
+
+

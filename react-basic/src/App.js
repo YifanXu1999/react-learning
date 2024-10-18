@@ -1,5 +1,6 @@
 import {useState, useRef} from "react";
 import {StatePropagation} from "./StatePropagation";
+import {SideEffect} from "./SideEffect";
 
 const count = 100;
 
@@ -117,6 +118,7 @@ function App() {
           />
           <h1>{'Message from son2: ' + message}</h1>
           <StatePropagation></StatePropagation>
+          <SideEffect></SideEffect>
       </div>
 
   )
