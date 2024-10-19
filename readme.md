@@ -335,3 +335,28 @@ function App() {
 }
 ```
 
+
+
+# Redux Async
+
+Create Async Action
+
+```react
+const fetchChannelList = () => {
+    return async (dispatch) => {
+        const res = await axios('http://geek.itheima.net/v1_0/channels')
+        dispatch(setChannels(res.data.data.channels))
+    }
+}
+```
+
+
+
+Call Async Action
+
+```react
+useEffect(() => {
+    dispatch(fetchChannelList())
+}, [dispatch]);
+```
+
