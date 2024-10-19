@@ -360,3 +360,13 @@ useEffect(() => {
 }, [dispatch]);
 ```
 
+
+
+# Routing
+
+Install npm
+
+```react
+npm i react-router-dom
+```
+
