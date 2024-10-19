@@ -362,7 +362,7 @@ useEffect(() => {
 
 
 
-# Routing
+# Router
 
 Install npm
 
@@ -395,5 +395,59 @@ const root = ReactDOM
     )
 
 
+```
+
+
+
+# Router Navigation Method
+
+## Link
+
+```react
+<Link to={'/article'}>Link to Article</Link>
+```
+
+## UseNavigatie
+
+```react
+const navigate = useNavigate()
+
+<button onClick={()=>navigate('/article')}>Navigate to Article</button>
+```
+
+
+
+# Router Navigation Pass Params
+
+## useSearchParams (RequestParams)
+
+```react
+navigate('/article?id=100&name=jack')
+
+const [params] = useSearchParams()
+let id = params.get('id')
+let name = params.get('name')
+```
+
+## useParams (PathVariable)
+
+```react
+const router = createBrowserRouter([
+    {
+        path: '/login',
+        element: <Login/>
+    },
+    {
+        path: '/article/:id/:name',
+        element: <Article/>
+    }
+]);
+
+
+navigate('/article/100/jack')
+
+const useParams1 = useParams()
+let id1 = useParams1.id
+let name1 = useParams1.name
 ```
 
