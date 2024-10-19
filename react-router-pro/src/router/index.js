@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, createHashRouter} from "react-router-dom";
 import Login from "../page/Login";
 import Article from "../page/Article";
 import Layout from "../page/Layout";
@@ -6,7 +6,7 @@ import About from "../page/About";
 import Board from "../page/Board";
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <Layout/>,
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     {
         path: '/article/:id/:name',
         element: <Article/>
+    },
+    {
+        path: '*',
+        element: <div>404</div>
     }
 ]);
 
