@@ -451,3 +451,6 @@ let id1 = useParams1.id
 let name1 = useParams1.name
 ```
 
+
+
+# Outlet (Children Routing)
