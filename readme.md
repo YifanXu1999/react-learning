@@ -257,3 +257,81 @@ export const CustomizedHook = () => {
 }
 ```
 
+
+
+# Redux
+
+Intall Command
+
+```
+npm i @reduxjs/toolkit react-redux
+```
+
+Create Redux Store (counterStore.js)
+
+```react
+const counterStore = createSlice({
+    name: 'counter',
+    initialState: {
+        count: 0
+    },
+    reducers: {
+        increment: (state) => {
+            state.count += 1
+        },
+        decrement: (state) => {
+            state.count -= 1
+        },
+        incrementByAmount: (state, action) => {
+            state.count += action.payload
+        }
+    }
+})
+
+const {increment, decrement, incrementByAmount} = counterStore.actions
+
+const counterReducer = counterStore.reducer
+
+export {increment, decrement, incrementByAmount}
+
+export default counterReducer
+```
+
+
+
+Configure Store
+
+```react
+const store = configureStore({
+    reducer: {
+        counter: counterReducer
+    }
+})
+
+export default store
+```
+
+Inject the store to provider of root component
+
+```react
+  <Provider store={store}>
+      <App />
+  </Provider>
+```
+
+UseSelector and UseDispatch
+
+```react
+function App() {
+  const {count} = useSelector(state => state.counter)
+  const dispatch = useDispatch()
+  return (
+      <div>
+        {count}
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+      </div>
+  );
+}
+```
+
