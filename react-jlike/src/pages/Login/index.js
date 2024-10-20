@@ -12,7 +12,7 @@ const Login = () => {
         console.log('Success:', values)
         dispatch(fetchLogin(values))
         message.success('登录成功')
-        navigate('/article')
+
     }
     return (
         <div className="login">

@@ -1,5 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {request, setToken as _setToken, getToken, removeToken} from "@/utils";
+import {useNavigate} from "react-router-dom";
+import router from "@/router";
 
 const userStore = createSlice(
     {
@@ -31,6 +33,9 @@ const fetchLogin = (loginForm) => {
     return async (dispatch) => {
         const res = await request.post('/authorizations', loginForm)
         dispatch(setToken(res.data.token))
+        router.navigate('/')
+        window.location.reload()
+
     }
 }
 
