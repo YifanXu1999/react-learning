@@ -454,3 +454,62 @@ let name1 = useParams1.name
 
 
 # Outlet (Children Routing)
+
+```react
+{
+    path: '/',
+    element: <Layout/>,
+    children: [
+        {
+            path: 'about',
+            element: <About/>
+        },
+        {
+            path: 'board',
+            element: <Board/>
+        }
+    ]
+}
+
+<Outlet/>
+```
+
+# Craco
+
+craco.config.js
+
+```react
+const path = require('path')
+
+module.exports = {
+    webpack: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+        }
+    }
+}
+```
+
+jsconfig.json
+
+```react
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  }
+}
+```
+
+package.json
+
+```javascript
+"scripts": {
+  "start": "craco start",
+  "build": "craco build",
+  "test": "craco test"
+},
+```
+
