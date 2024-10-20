@@ -1,10 +1,18 @@
 import './index.scss'
-import {Card, Form, Input, Button} from 'antd'
+import {Card, Form, Input, Button, message} from 'antd'
 import logo from '@/assets/logo.png'
+import {useDispatch} from "react-redux";
+import {fetchLogin} from "@/store/modules/user";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const onFinish = (values) => {
         console.log('Success:', values)
+        dispatch(fetchLogin(values))
+        navigate('/')
+        message.success('登录成功')
     }
     return (
         <div className="login">
@@ -28,7 +36,7 @@ const Login = () => {
                         <Input size="large" placeholder="请输入手机号"/>
                     </Form.Item>
                     <Form.Item
-                        name="password"
+                        name="code"
                         rules={[
                             {
                                 required: true,
