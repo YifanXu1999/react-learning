@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {request, setToken as _setToken, getToken, removeToken} from "@/utils";
 import {useNavigate} from "react-router-dom";
 import router from "@/router";
+import {getProfileAPI, loginAPI} from "@/apis/user";
 
 const userStore = createSlice(
     {
@@ -31,7 +32,7 @@ const userStore = createSlice(
 
 const fetchLogin = (loginForm) => {
     return async (dispatch) => {
-        const res = await request.post('/authorizations', loginForm)
+        const res = await loginAPI(loginForm)
         dispatch(setToken(res.data.token))
         router.navigate('/')
         window.location.reload()
@@ -41,7 +42,7 @@ const fetchLogin = (loginForm) => {
 
 const fetchUserInfo = () => {
     return async (dispatch) => {
-        const res = await request.get('/user/profile')
+        const res = await getProfileAPI()
         dispatch(setUserInfo(res.data))
     }
 }
