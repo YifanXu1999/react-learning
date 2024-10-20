@@ -13,9 +13,29 @@ import { PlusOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import './index.scss'
 
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css'
+import {useEffect, useState} from "react";
+import {getChannelAPI} from "@/apis/article";
+
 const { Option } = Select
 
 const Publish = () => {
+    const [channelList, setChannelList] = useState([])
+
+    useEffect(() => {
+        const getChannelList = async () => {
+            const res = await getChannelAPI()
+            setChannelList(res.data.channels)
+            console.log(channelList)
+        }
+        getChannelList()
+    }, [])
+
+    const onFinsh = (formValue) => {
+        console.log(formValue)
+    }
+
     return (
         <div className="publish">
             <Card
@@ -31,6 +51,7 @@ const Publish = () => {
                     labelCol={{ span: 4 }}
                     wrapperCol={{ span: 16 }}
                     initialValues={{ type: 1 }}
+                    onFinish={onFinsh}
                 >
                     <Form.Item
                         label="标题"
@@ -45,7 +66,9 @@ const Publish = () => {
                         rules={[{ required: true, message: '请选择文章频道' }]}
                     >
                         <Select placeholder="请选择文章频道" style={{ width: 400 }}>
-                            <Option value={0}>推荐</Option>
+                            {channelList.map(channel => (
+                                <Option key={channel.id} value={channel.id}>{channel.name}</Option>
+                            ))}
                         </Select>
                     </Form.Item>
                     <Form.Item
@@ -54,6 +77,11 @@ const Publish = () => {
                         rules={[{ required: true, message: '请输入文章内容' }]}
                     ></Form.Item>
 
+                    <ReactQuill
+                        className="publish-quill"
+                        theme="snow"
+                        placeholder="请输入文章内容"
+                    />
                     <Form.Item wrapperCol={{ offset: 4 }}>
                         <Space>
                             <Button size="large" type="primary" htmlType="submit">
