@@ -6,12 +6,16 @@ const userStore = createSlice(
         name: 'user',
         initialState: {
             token: '',
+            userInfo: {}
         },
         reducers: {
             setToken(state, action) {
                 state.token = action.payload
                 console.log('state.token', state.token)
                 _setToken(state.token)
+            },
+            setUserInfo(state, action) {
+                state.userInfo = action.payload
             }
         }
     }
@@ -24,9 +28,18 @@ const fetchLogin = (loginForm) => {
         dispatch(setToken(res.data.token))
     }
 }
-const {setToken} = userStore.actions
+
+const fetchUserInfo = () => {
+    return async (dispatch) => {
+        const res = await request.get('/user/profile')
+        dispatch(setUserInfo(res.data))
+    }
+}
+
+
+const {setToken, setUserInfo} = userStore.actions
 const userReducer = userStore.reducer
 
-export {setToken, fetchLogin}
+export {setToken, fetchLogin, fetchUserInfo}
 
 export default userReducer
