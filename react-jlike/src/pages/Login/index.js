@@ -11,8 +11,8 @@ const Login = () => {
     const onFinish = (values) => {
         console.log('Success:', values)
         dispatch(fetchLogin(values))
-        navigate('/')
         message.success('登录成功')
+        navigate('/article')
     }
     return (
         <div className="login">
