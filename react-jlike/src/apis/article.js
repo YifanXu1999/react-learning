@@ -7,3 +7,10 @@ export function getChannelAPI(formData) {
     })
 }
 
+export function createArticleAPI(formData) {
+    return request({
+        url: '/mp/articles?draft=false',
+        method: 'POST',
+        data: formData
+    })
+}
