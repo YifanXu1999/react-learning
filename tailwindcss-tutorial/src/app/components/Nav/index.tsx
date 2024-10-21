@@ -17,7 +17,7 @@ const ROUTES = [
 export function Nav () {
     const [isMobileMenuShown, setIsMobileMenuShown] = useState(false)
     return (
-        <nav className="flex flex-wrap justify-between items-center">
+        <nav className="z-10 relative flex flex-wrap justify-between items-center">
             {/*Nike Icon*/}
             <a href="#">
                 <Nikelogo className="h-20 w-20 "></Nikelogo>
@@ -45,8 +45,8 @@ export function Nav () {
                 </ul>
             </div>
             {/*Shopping Bag*/}
-            <div className="fixed bottom-4 left-4 lg:static">
-                <div className="flex-center h-12 w-12 rounded-full bg-white shadow-md">
+            <div className="fixed bottom-4 left-4 md:static">
+                <div className="flex-center h-12 w-12 cursor-pointer rounded-full bg-white shadow-md">
                     <TbShoppingBag></TbShoppingBag>
                 </div>
             </div>

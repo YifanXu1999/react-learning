@@ -1,12 +1,16 @@
 import nike1 from "../../assets/n1-min.png"
 import Image from 'next/image'
+import {Select} from "@/app/components/Select";
 export function ShoeDetails () {
+    const QTY: string[] = ["1", "2", "3", "4", "5"]
+    const Size: string[] = ["7", "8", "9", "10", "11"]
     return (
         <div className="flex flex-col items-center justify-center md:flex-row-reverse">
             {/* Show images */}
-            <div className="flex-1">
+            <div className="flex-1 md:-mt-52">
                 <div className="bg-gradient-to-br from-[#F637CF] from-5% via-[#E3D876] to-[#4DD4C6]">
-                    <Image src={nike1} alt="abc"></Image>
+                    <Image src={nike1} alt="abc"       width={2000}
+                           height={2000} ></Image>
                 </div>
 
             </div>
@@ -22,6 +26,13 @@ export function ShoeDetails () {
                 <div className="text-3xl font-extrabold md:text-6xl">
                     $100
                 </div>
+                {/* Select*/}
+                <div className="flex flex-row  justify-between p-10">
+                    <Select title={"QTY"} options={QTY}></Select>
+                    <Select title={"Size"} options={Size}></Select>
+                </div>
+
+                {/* Shoe buttons and links */}
                 <div className="space-x-10">
                     <button className="h-14 w-1/2 bg-black text-white hover:bg-gray-900 active:bg-gray-500">
                         Add to bag
