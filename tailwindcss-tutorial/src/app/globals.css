@@ -5,7 +5,7 @@
 
 @layer base {
   html {
-    @applybg-amber-300;
-    background-color: #00aeec;
+    /*background-color: #00aeec;*/
+    font-family: 'Inter', sans-serif;
   }
 }
