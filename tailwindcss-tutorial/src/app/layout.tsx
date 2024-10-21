@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import '@fontsource-variable/nunito-sans';
+import '@fontsource/roboto/700-italic.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

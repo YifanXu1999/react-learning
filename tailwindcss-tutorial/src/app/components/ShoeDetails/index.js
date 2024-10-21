@@ -3,8 +3,12 @@ import Image from 'next/image'
 export function ShoeDetails () {
     return (
         <div className="flex flex-col items-center justify-center md:flex-row-reverse">
+            {/* Show images */}
             <div className="flex-1">
-                <Image src={nike1} alt="abc"></Image>
+                <div className="bg-gradient-to-br from-[#F637CF] from-5% via-[#E3D876] to-[#4DD4C6]">
+                    <Image src={nike1} alt="abc"></Image>
+                </div>
+
             </div>
 
             <div className="flex-1 space-y-6">

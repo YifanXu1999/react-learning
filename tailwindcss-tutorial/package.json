@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource-variable/nunito-sans": "^5.1.0",
+    "@fontsource/roboto": "^5.1.0",
     "@react-icons/all-files": "^4.1.0",
     "classnames": "^2.5.1",
     "next": "14.2.15",
