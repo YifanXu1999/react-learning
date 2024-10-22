@@ -46,7 +46,7 @@ export function Nav () {
             </div>
             {/*Shopping Bag*/}
             <div className="fixed bottom-4 left-4 md:static">
-                <div className="flex-center h-12 w-12 cursor-pointer rounded-full bg-white shadow-md">
+                <div className="btn-press-animate  flex-center h-12 w-12 cursor-pointer rounded-full bg-white shadow-md">
                     <TbShoppingBag></TbShoppingBag>
                 </div>
             </div>

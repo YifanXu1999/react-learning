@@ -8,8 +8,8 @@ export function ShoeDetails () {
         <div className="flex flex-col items-center justify-center md:flex-row-reverse">
             {/* Show images */}
             <div className="flex-1 md:-mt-52">
-                <div className="bg-gradient-to-br from-[#F637CF] from-5% via-[#E3D876] to-[#4DD4C6]">
-                    <Image src={nike1} alt="abc"       width={2000}
+                <div className="h-full bg-gradient-to-br from-[#F637CF] from-5% via-[#E3D876] to-[#4DD4C6]">
+                    <Image className="animate-float" src={nike1} alt="abc"       width={2000}
                            height={2000} ></Image>
                 </div>
 
@@ -34,7 +34,7 @@ export function ShoeDetails () {
 
                 {/* Shoe buttons and links */}
                 <div className="space-x-10">
-                    <button className="h-14 w-1/2 bg-black text-white hover:bg-gray-900 active:bg-gray-500">
+                    <button className="btn-press-animate  h-14 w-1/2 bg-black text-white hover:bg-gray-900 active:bg-gray-500">
                         Add to bag
                     </button>
                     <a href="#" className="text-lg font-bold underline underline-offset-4">
