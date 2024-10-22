@@ -14,7 +14,7 @@ const ROUTES = [
     'Contact'
 ]
 
-export function Nav () {
+export function Nav ({onClickShoppingButton}) {
     const [isMobileMenuShown, setIsMobileMenuShown] = useState(false)
     return (
         <nav className="z-10 relative flex flex-wrap justify-between items-center">
@@ -46,7 +46,7 @@ export function Nav () {
             </div>
             {/*Shopping Bag*/}
             <div className="fixed bottom-4 left-4 md:static">
-                <div className="btn-press-animate  flex-center h-12 w-12 cursor-pointer rounded-full bg-white shadow-md">
+                <div onClick={()=>onClickShoppingButton(true)} className="btn-press-animate  flex-center h-12 w-12 cursor-pointer rounded-full bg-white shadow-md">
                     <TbShoppingBag></TbShoppingBag>
                 </div>
             </div>
