@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import dynamic from 'next/dynamic'
+import Link from "next/link";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -24,14 +25,15 @@ export default function RootLayout(
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  // @ts-ignore
+    return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-      <div>I am root layout</div>
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
+
+      {children}
       </body>
     </html>
-  );
+    );
 }
