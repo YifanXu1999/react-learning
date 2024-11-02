@@ -1,5 +1,4 @@
 import Image, {StaticImageData} from "next/image";
-import HomePic from "@/public/home.png"
 
 interface IProps {
   imgUrl: StaticImageData,
