@@ -1,8 +1,8 @@
 import Image from "next/image";
 import {photos} from "@/app/data";
-
-export default async function Page({params}: {params: Promise<{id:string}>}) {
-  const {id} = await params
+import {use} from "react"
+export default  function Page({params}: {params: Promise<{id:string}>}) {
+  const {id} = use(params)
   const photo = photos.find(item=> item.id ===id)!
   return (
     <div>
